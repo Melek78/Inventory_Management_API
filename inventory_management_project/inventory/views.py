@@ -110,7 +110,7 @@ class UserViewSet(viewsets.ModelViewSet):
         if self.action in ['create']:  # registration
             return [permissions.AllowAny()]
         if self.action in ['list', 'destroy']:
-            return [permissions.IsAdminUser()]
+            return [permissions.IsAuthenticated()]
         return [permissions.IsAuthenticated()]
 
     def get_queryset(self):
